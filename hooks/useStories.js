@@ -1,35 +1,27 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { topStoriesUrl, bestStoriesUrl } from "../Services/api";
 
 function useStories() {
-  const [topStoryIds, setTopStoryIds] = useState([]);
-  const [bestStoryIds, setBestStoryIds] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
+  const [storyIds, setStoryIds] = useState([]);
+  const baseUrl = "https://hacker-news.firebaseio.com/v0/";
+  const topStoriesUrl = `${baseUrl}topstories.json`;
+  const storyUrl = `${baseUrl}item/`;
 
-  //fetching the data from topstories api
+  const fetchTopStory = async (storyId) => {
+    return await axios
+      .get(`${storyUrl}${storyId}.json`)
+      .then(({ data }) => data)
+      .catch((e) => console.log("error"));
+  };
+
   useEffect(() => {
     axios
       .get(topStoriesUrl)
-      .then((response) => {
-        setTopStoryIds(response.data);
-        setIsClicked(true);
-      })
+      .then((response) => response && setStoryIds(response.data))
       .catch((e) => console.log("error"));
   }, []);
 
-  //fetching the data from beststories api
-  useEffect(() => {
-    axios
-      .get(bestStoriesUrl)
-      .then((response) => {
-        setBestStoryIds(response.data);
-        setIsClicked(false);
-      })
-      .catch((e) => console.log("error"));
-  }, []);
-
-  return [topStoryIds, bestStoryIds, isClicked, setIsClicked];
+  return [storyIds, fetchTopStory];
 }
 
 export default useStories;

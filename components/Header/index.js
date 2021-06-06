@@ -10,8 +10,6 @@ import {
 import HeaderLogo from "../Logos/HeaderLogo";
 import FooterLogo from "../Logos/FooterLogo";
 
-import Hackernews from "../../assets/logos/Hackernews.svg";
-
 function Header() {
   return (
     <TouchableOpacity style={styles.headerContainer}>
@@ -22,8 +20,8 @@ function Header() {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    flex: 1,
     alignItems: "center",
+    paddingVertical: 45,
   },
 });
 

@@ -33,15 +33,29 @@ function Stories({ storyId }) {
 
   return (
     <View>
-      {story ? (
-        <View href={url}>
-          <Text>{title}</Text>
-          <Text>{text}</Text>
-          <Text>{time}</Text>
-        </View>
-      ) : null}
+      <View style={styles.content}>
+        <ScrollView contentContainerStyle={styles.list}>
+          {story ? (
+            <View>
+              <Text>{title}</Text>
+              <Text>{text}</Text>
+              {/*     <Text>{time}</Text> */}
+            </View>
+          ) : null}
+        </ScrollView>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  content: {
+    width: "80%",
+  },
+  list: {
+    flexGrow: 1,
+    justifyContent: "flex-end",
+  },
+});
 
 export default Stories;

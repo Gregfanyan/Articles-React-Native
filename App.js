@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import useStories from "./hooks/useStories";
 import Stories from "./Stories";
 import Buttons from "./components/Buttons";
+import LoadMore from "./components/LoadMore";
 
 export default function App() {
   const storiesPerPage = 3;
@@ -61,6 +62,7 @@ export default function App() {
             <Stories storyId={storyId} key={storyId} />
           ))}
       </View>
+      <LoadMore handleShowMoreStories={handleShowMoreStories} />
       <Footer />
     </View>
   );

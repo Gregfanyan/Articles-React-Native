@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  FlatList,
+} from "react-native";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -56,12 +63,19 @@ export default function App() {
         changeUrlhandleCLick={changeUrlhandleCLick}
         isClicked={isClicked}
       />
-      <View>
+      {/*     <ScrollView>
         {storiesToShow &&
           storiesToShow.map((storyId) => (
             <Stories storyId={storyId} key={storyId} />
           ))}
-      </View>
+      </ScrollView> */}
+
+      <FlatList
+        data={storiesToShow}
+        keyExtractor={(item) => item.toString()}
+        renderItem={(storyId) => <Stories storyId={storyId.item} />}
+      />
+
       <LoadMore handleShowMoreStories={handleShowMoreStories} />
       <Footer />
     </View>

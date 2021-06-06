@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import useStories from "./hooks/useStories";
 import Stories from "./Stories";
+import Buttons from "./components/Buttons";
 
 export default function App() {
   const storiesPerPage = 3;
@@ -50,6 +51,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
+      <Buttons
+        changeUrlhandleCLick={changeUrlhandleCLick}
+        isClicked={isClicked}
+      />
       <View>
         {storiesToShow &&
           storiesToShow.map((storyId) => (

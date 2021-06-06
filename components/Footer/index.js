@@ -5,11 +5,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import HeaderLogo from "../Logos/HeaderLogo";
-function Header() {
+import FooterLogo from "../Logos/FooterLogo";
+
+function Footer() {
   return (
     <TouchableOpacity style={styles.headerContainer}>
-      <HeaderLogo />
+      <FooterLogo />
     </TouchableOpacity>
   );
 }
@@ -18,7 +19,8 @@ const styles = StyleSheet.create({
   headerContainer: {
     alignItems: "center",
     paddingVertical: 45,
+    backgroundColor: "yellow",
   },
 });
 
-export default Header;
+export default Footer;

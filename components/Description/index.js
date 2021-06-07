@@ -1,16 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 
+import BodyText from "../BodyText";
+
 function Description({ text }) {
   return (
     <View>
       {text ? (
-        <Text>{text}</Text>
+        <BodyText>{text}</BodyText>
       ) : (
-        <Text>
+        <BodyText>
           Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s, …when an unknown printer took a galley of type and scrambled
-        </Text>
+        </BodyText>
       )}
     </View>
   );

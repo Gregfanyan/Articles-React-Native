@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 
+import TitleText from "../TitleText";
+
 function ArticleTitle({ title }) {
   return (
     <View>
-      <Text>{title}</Text>
+      <TitleText>{title}</TitleText>
     </View>
   );
 }

@@ -3,11 +3,10 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 import { getStories } from "../Services/api";
 import ArticleTitle from "../components/ArticleTitle";
-
+import Description from "../components/Description";
 function Stories({ storyId }) {
   const [story, setStory] = React.useState({});
   const { title, text, url, time } = story;
-
   let componentMounted = true;
 
   useEffect(() => {
@@ -35,11 +34,8 @@ function Stories({ storyId }) {
       <View style={styles.content}>
         <ScrollView contentContainerStyle={styles.list}>
           <ArticleTitle title={title} />
-
-          <View>
-            <Text>{text}</Text>
-            {/*     <Text>{time}</Text> */}
-          </View>
+          <Description text={text} />
+          <View>{/*     <Text>{time}</Text> */}</View>
         </ScrollView>
       </View>
     </View>

@@ -7,28 +7,23 @@ import Colors from "../../constants/Colors.js";
 function Buttons({ changeUrlhandleCLick, isClicked }) {
   return (
     <View>
-      <View pointerEvents={!isClicked ? "none" : "auto"}>
-        <MainButton
-          /*    style={styles.buttonNew} */
-          style={{
-            backgroundColor: isClicked ? Colors.primary : Colors.primary_text,
-          }}
-          onPress={changeUrlhandleCLick}
-          disabled={isClicked}
-        >
-          new
-        </MainButton>
-      </View>
-      <View pointerEvents={isClicked ? "none" : "auto"}>
-        <MainButton
-          /*  style={styles.buttonPast} */
-          style={!isClicked ? styles.active : styles.disabled}
-          onPress={changeUrlhandleCLick}
-          disabled={!isClicked}
-        >
-          past
-        </MainButton>
-      </View>
+      <MainButton
+        style={{
+          backgroundColor: isClicked ? Colors.primary : Colors.primary_text,
+        }}
+        onPress={changeUrlhandleCLick}
+        pointerEvents={!isClicked ? "none" : "auto"}
+      >
+        new
+      </MainButton>
+
+      <MainButton
+        style={!isClicked ? styles.active : styles.disabled}
+        onPress={changeUrlhandleCLick}
+        pointerEvents={isClicked ? "none" : "auto"}
+      >
+        past
+      </MainButton>
     </View>
   );
 }

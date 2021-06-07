@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   ButtonContainer: {
     borderRadius: 25,
     overflow: "hidden",
+    paddingLeft: 10,
   },
   button: {
     paddingVertical: 12,
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
     color: Colors.secondary_text,
     fontSize: 19,
     fontFamily: "open-sans-bold",
+    textTransform: "capitalize",
   },
 });
 function MainButton(props) {

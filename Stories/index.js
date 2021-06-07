@@ -8,7 +8,6 @@ import Detail from "../components/Detail";
 
 function Stories({ storyId }) {
   const [story, setStory] = React.useState({});
-  const { title, text, url, time } = story;
   let componentMounted = true;
 
   useEffect(() => {
@@ -31,9 +30,11 @@ function Stories({ storyId }) {
     };
   }, [storyId]);
 
+  const { title, text, url, time } = story;
+
   return (
-    <View>
-      <Text style={styles.content} onPress={() => Linking.openURL(url)}>
+    <View style={styles.content}>
+      <Text onPress={() => Linking.openURL(url)}>
         <ArticleTitle title={title} />
         <Description text={text} />
         <Detail time={time} />
@@ -45,6 +46,7 @@ function Stories({ storyId }) {
 const styles = StyleSheet.create({
   content: {
     width: "80%",
+    marginVertical: 10,
   },
 });
 

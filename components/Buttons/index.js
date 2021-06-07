@@ -6,34 +6,42 @@ import Colors from "../../constants/Colors.js";
 
 function Buttons({ changeUrlhandleCLick, isClicked }) {
   return (
-    <View>
-      <MainButton
-        style={{
-          backgroundColor: isClicked ? Colors.primary : Colors.primary_text,
-        }}
-        onPress={changeUrlhandleCLick}
-        pointerEvents={!isClicked ? "none" : "auto"}
-      >
-        new
-      </MainButton>
-
-      <MainButton
-        style={!isClicked ? styles.active : styles.disabled}
-        onPress={changeUrlhandleCLick}
-        pointerEvents={isClicked ? "none" : "auto"}
-      >
-        past
-      </MainButton>
+    <View style={styles.buttonContainer}>
+      <View pointerEvents={isClicked ? "none" : "auto"}>
+        <MainButton
+          style={!isClicked ? styles.active : styles.disabled}
+          onPress={changeUrlhandleCLick}
+        >
+          new
+        </MainButton>
+      </View>
+      <View pointerEvents={!isClicked ? "none" : "auto"}>
+        <MainButton
+          style={isClicked ? styles.active : styles.disabled}
+          onPress={changeUrlhandleCLick}
+          pointerEvents={isClicked ? "none" : "auto"}
+        >
+          past
+        </MainButton>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    marginVertical: 20,
+    marginHorizontal: 5,
+  },
   active: {
     backgroundColor: Colors.primary,
+    marginRight: 10,
   },
   disabled: {
-    backgroundColor: Colors.primary_text,
+    backgroundColor: Colors.light_grey,
+    marginRight: 10,
   },
 });
 

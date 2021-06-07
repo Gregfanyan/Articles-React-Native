@@ -13,7 +13,7 @@ function LoadMore({ handleShowMoreStories }) {
 
 const styles = StyleSheet.create({
   button: {
-    color: Colors.secondary_text,
+    backgroundColor: Colors.primary,
   },
 });
 

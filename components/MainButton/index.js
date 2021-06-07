@@ -16,12 +16,12 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   button: {
-    backgroundColor: Colors.primary,
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 25,
   },
   buttonText: {
+    color: Colors.secondary_text,
     fontSize: 19,
     fontFamily: "open-sans-bold",
   },
@@ -34,10 +34,8 @@ function MainButton(props) {
   return (
     <View style={styles.ButtonContainer}>
       <ButtonComponent onPress={props.onPress} activeOpacity={0.8}>
-        <View style={styles.button}>
-          <Text style={{ ...styles.buttonText, ...props.style }}>
-            {props.children}
-          </Text>
+        <View style={{ ...styles.button, ...props.style }}>
+          <Text style={styles.buttonText}>{props.children}</Text>
         </View>
       </ButtonComponent>
     </View>

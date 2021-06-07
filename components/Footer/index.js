@@ -6,6 +6,7 @@ import {
 } from "react-native";
 
 import FooterLogo from "../Logos/FooterLogo";
+import Colors from "../../constants/Colors";
 
 function Footer() {
   return (
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     alignItems: "center",
     paddingVertical: 45,
-    backgroundColor: "yellow",
+    backgroundColor: Colors.primary,
   },
 });
 

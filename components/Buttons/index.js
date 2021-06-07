@@ -7,31 +7,38 @@ import Colors from "../../constants/Colors.js";
 function Buttons({ changeUrlhandleCLick, isClicked }) {
   return (
     <View>
-      <MainButton
-        style={styles.buttonNew}
-        onPress={changeUrlhandleCLick}
-        disabled={isClicked}
-      >
-        new
-      </MainButton>
-
-      <MainButton
-        style={styles.buttonPast}
-        onPress={changeUrlhandleCLick}
-        disabled={!isClicked}
-      >
-        past
-      </MainButton>
+      <View pointerEvents={!isClicked ? "none" : "auto"}>
+        <MainButton
+          /*    style={styles.buttonNew} */
+          style={{
+            backgroundColor: isClicked ? Colors.primary : Colors.primary_text,
+          }}
+          onPress={changeUrlhandleCLick}
+          disabled={isClicked}
+        >
+          new
+        </MainButton>
+      </View>
+      <View pointerEvents={isClicked ? "none" : "auto"}>
+        <MainButton
+          /*  style={styles.buttonPast} */
+          style={!isClicked ? styles.active : styles.disabled}
+          onPress={changeUrlhandleCLick}
+          disabled={!isClicked}
+        >
+          past
+        </MainButton>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  buttonNew: {
-    color: Colors.secondary_text,
+  active: {
+    backgroundColor: Colors.primary,
   },
-  buttonPast: {
-    color: Colors.secondary_text,
+  disabled: {
+    backgroundColor: Colors.primary_text,
   },
 });
 

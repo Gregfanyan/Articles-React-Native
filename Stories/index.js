@@ -2,13 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 import { getStories } from "../Services/api";
+import ArticleTitle from "../components/ArticleTitle";
 
 function Stories({ storyId }) {
   const [story, setStory] = React.useState({});
   const { title, text, url, time } = story;
 
-  //getStories function takes storyId as a distructured props and returns the stories
-  //either top or best stories depending on the click(changeUrlhandleCLick function)
   let componentMounted = true;
 
   useEffect(() => {
@@ -35,13 +34,12 @@ function Stories({ storyId }) {
     <View>
       <View style={styles.content}>
         <ScrollView contentContainerStyle={styles.list}>
-          {story ? (
-            <View>
-              <Text style={styles.titleText}>{title}</Text>
-              <Text>{text}</Text>
-              {/*     <Text>{time}</Text> */}
-            </View>
-          ) : null}
+          <ArticleTitle title={title} />
+
+          <View>
+            <Text>{text}</Text>
+            {/*     <Text>{time}</Text> */}
+          </View>
         </ScrollView>
       </View>
     </View>

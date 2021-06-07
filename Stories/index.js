@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Linking } from "react-native";
 
 import { getStories } from "../Services/api";
 import ArticleTitle from "../components/ArticleTitle";
@@ -33,13 +33,11 @@ function Stories({ storyId }) {
 
   return (
     <View>
-      <View style={styles.content}>
-        <ScrollView contentContainerStyle={styles.list}>
-          <ArticleTitle title={title} />
-          <Description text={text} />
-          <Detail time={time} />
-        </ScrollView>
-      </View>
+      <Text style={styles.content} onPress={() => Linking.openURL(url)}>
+        <ArticleTitle title={title} />
+        <Description text={text} />
+        <Detail time={time} />
+      </Text>
     </View>
   );
 }
@@ -47,13 +45,6 @@ function Stories({ storyId }) {
 const styles = StyleSheet.create({
   content: {
     width: "80%",
-  },
-  list: {
-    flexGrow: 1,
-    justifyContent: "flex-end",
-  },
-  titleText: {
-    fontFamily: "open-sans",
   },
 });
 

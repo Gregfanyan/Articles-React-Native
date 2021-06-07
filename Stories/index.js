@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { getStories } from "../Services/api";
 import ArticleTitle from "../components/ArticleTitle";
 import Description from "../components/Description";
+import Detail from "../components/Detail";
+
 function Stories({ storyId }) {
   const [story, setStory] = React.useState({});
   const { title, text, url, time } = story;
@@ -35,7 +37,7 @@ function Stories({ storyId }) {
         <ScrollView contentContainerStyle={styles.list}>
           <ArticleTitle title={title} />
           <Description text={text} />
-          <View>{/*     <Text>{time}</Text> */}</View>
+          <Detail time={time} />
         </ScrollView>
       </View>
     </View>

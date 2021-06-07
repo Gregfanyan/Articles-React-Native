@@ -37,7 +37,7 @@ function Stories({ storyId }) {
         <ScrollView contentContainerStyle={styles.list}>
           {story ? (
             <View>
-              <Text>{title}</Text>
+              <Text style={styles.titleText}>{title}</Text>
               <Text>{text}</Text>
               {/*     <Text>{time}</Text> */}
             </View>
@@ -55,6 +55,9 @@ const styles = StyleSheet.create({
   list: {
     flexGrow: 1,
     justifyContent: "flex-end",
+  },
+  titleText: {
+    fontFamily: "open-sans",
   },
 });
 

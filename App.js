@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  FlatList,
-} from "react-native";
+import * as Font from "expo-font";
+import { StyleSheet, View, FlatList } from "react-native";
+import AppLoading from "expo-app-loading";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,12 +10,20 @@ import Stories from "./Stories";
 import Buttons from "./components/Buttons";
 import LoadMore from "./components/LoadMore";
 
+const fetchFonts = () => {
+  return Font.loadAsync({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  });
+};
+
 export default function App() {
   const storiesPerPage = 3;
   const [topStoryIds, bestStoryIds, isClicked, setIsClicked] = useStories();
   const [currentStoryId, setCurrentStoryId] = useState([]);
   const [storiesToShow, setStoriesToShow] = useState([]);
   const [next, setNext] = useState(3);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   //defining the function will take the initial state and add 3 more stories
   const loopWithSlice = (start, end) => {
@@ -56,6 +59,16 @@ export default function App() {
       : setCurrentStoryId(topStoryIds);
   }, [topStoryIds, bestStoryIds, isClicked]);
 
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={console.warn}
+      />
+    );
+  }
+
   return (
     <View style={styles.container}>
       <Header />
@@ -63,13 +76,6 @@ export default function App() {
         changeUrlhandleCLick={changeUrlhandleCLick}
         isClicked={isClicked}
       />
-      {/*     <ScrollView>
-        {storiesToShow &&
-          storiesToShow.map((storyId) => (
-            <Stories storyId={storyId} key={storyId} />
-          ))}
-      </ScrollView> */}
-
       <FlatList
         data={storiesToShow}
         keyExtractor={(item) => item.toString()}

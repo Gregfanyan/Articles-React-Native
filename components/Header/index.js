@@ -17,7 +17,7 @@ function Header() {
 const styles = StyleSheet.create({
   headerContainer: {
     alignItems: "center",
-    paddingVertical: 45,
+    marginTop: 50,
   },
 });
 

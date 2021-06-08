@@ -30,11 +30,17 @@ function Buttons({ changeUrlhandleCLick, isClicked }) {
 
 const styles = StyleSheet.create({
   buttonContainer: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
     flexDirection: "row",
     justifyContent: "flex-start",
-    marginVertical: 20,
+    marginVertical: 40,
     marginHorizontal: 5,
+    paddingLeft: 10,
   },
+
   active: {
     backgroundColor: Colors.primary,
     marginRight: 10,

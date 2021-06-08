@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     overflow: "hidden",
     paddingLeft: 10,
+    justifyContent: "center",
+    alignContent: "center",
+    width: "100%",
   },
   button: {
     paddingVertical: 12,
@@ -26,6 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontFamily: "open-sans-bold",
     textTransform: "capitalize",
+    textAlign: "center",
   },
 });
 function MainButton(props) {

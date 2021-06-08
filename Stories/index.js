@@ -33,8 +33,8 @@ function Stories({ storyId }) {
   const { title, text, url, time } = story;
 
   return (
-    <View style={styles.content}>
-      <Text onPress={() => Linking.openURL(url)}>
+    <View style={styles.screen}>
+      <Text style={styles.content} onPress={() => Linking.openURL(url)}>
         <ArticleTitle title={title} />
         <Description text={text} />
         <Detail time={time} />
@@ -44,9 +44,25 @@ function Stories({ storyId }) {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    flexDirection: "column",
+    width: "90%",
+    height: 100,
+    marginBottom: 20,
+    shadowColor: "black",
+    backgroundColor: "white",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 6,
+    shadowRadius: 2,
+    elevation: 10,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "flex-start",
+  },
   content: {
-    width: "80%",
-    marginVertical: 10,
+    maxWidth: "80%",
   },
 });
 

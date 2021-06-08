@@ -80,6 +80,7 @@ export default function App() {
         data={storiesToShow}
         keyExtractor={(item) => item.toString()}
         renderItem={(storyId) => <Stories storyId={storyId.item} />}
+        contentContainerStyle={styles.articlesContainer}
       />
 
       <LoadMore handleShowMoreStories={handleShowMoreStories} />
@@ -91,5 +92,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+  },
+  articlesContainer: {
+    textAlign: "center",
+    justifyContent: "center",
   },
 });

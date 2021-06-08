@@ -14,6 +14,8 @@ function LoadMore({ handleShowMoreStories }) {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: Colors.primary,
+    margin: 20,
+    padding: 500,
   },
 });
 

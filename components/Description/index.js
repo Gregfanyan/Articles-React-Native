@@ -5,7 +5,7 @@ import BodyText from "../BodyText";
 
 function Description({ text }) {
   return (
-    <View>
+    <View style={styles.container}>
       {text ? (
         <BodyText>{text}</BodyText>
       ) : (
@@ -17,5 +17,11 @@ function Description({ text }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignSelf: "flex-start",
+  },
+});
 
 export default Description;
